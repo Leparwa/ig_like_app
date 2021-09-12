@@ -4,4 +4,4 @@ from django.http import HttpResponse
 
 
 def home(request):
-    return render('ig/base.html')
+    return render(request, 'ig/home.html')
