@@ -1,23 +1,27 @@
-from typing import BinaryIO
 from django.db import models
-from django.contrib.auth.models import User
-
+from django.contrib.auth.models import User 
+from django.dispatch import receiver 
+from django.db.models.signals import post_save 
 
         
 class Profile(models.Model):
-    profile_photo = models.ImageField(upload_to='profile/')
+    profile_photo = models.ImageField(upload_to='images/')
     bio =  models.TextField(max_length=200)
+    user =  models.OneToOneField(User, on_delete=models.CASCADE,  default = "")
+
 
     def __str__(self):
         return self.bio
 
-    def save(self):
-        self.save()
-
-    @classmethod
-    def update(cls,id):
-        profile = cls.objects.update(id = id)
-        return profile
+    @receiver(post_save, sender=User)
+    def create_user_profile(sender, instance, created, **kwargs):
+        if created:
+            Profile.objects.create(user=instance)
+    
+    @receiver(post_save, sender=User)
+    def save_user_profile(sender, instance, **kwargs):
+        instance.profile.save()
+        
     @classmethod
     def delete(cls,id):
         cls.objects.delete(id = id)
@@ -29,6 +33,7 @@ class Image(models.Model):
     comments = models.TextField(max_length=200)
     likes = models.ManyToManyField(User, related_name="post_likes")
     comments = models.TextField(max_length=200)
+    profile = models.ForeignKey(Profile, on_delete=models.CASCADE, default = "")
 
     def __str__(self):
         return self.name

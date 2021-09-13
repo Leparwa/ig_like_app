@@ -1,5 +1,6 @@
 {% extends 'ig/base.html' %}
 {% block content %} 
+{% include 'ig/nav.html' %}
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-7">
@@ -105,14 +106,13 @@
             <div  class="d-flex justify-contend-center">
               <img src="https://bootdey.com/img/Content/avatar/avatar6.png" class="rounded-circle" alt="profile-pic"  height="60px" width="60px" >
               <span>
-                <p class="px-3"><strong>kevinleresi</strong><br>
-                  <small>kevin leresi</small>
+                <p class="px-3"><strong>{{user.username|title}}</strong><br>
+                  <small>{{user.username|title}}</small>
                 </p> 
               </span>
              <span style="margin-left: 25%; text-decoration: none;"><a href="" class="pull-right px-5">switch</a></span>
             </div>
             <ul>
-
               <span>
                 <p class="mt-3">
                   <span class="text-muted">Suggestions For You </span>

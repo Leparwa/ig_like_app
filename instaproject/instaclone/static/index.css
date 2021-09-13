@@ -7,7 +7,7 @@ body{
     color:#fff;    
 }
 
-.container-fluid,
+
 .container-lg,
 .container-md,
 .container-sm,
@@ -17,7 +17,6 @@ body{
 }
 
 @media only screen and (min-width:480px) {
-    .container-fluid,
     .container-lg,
     .container-md,
     .container-sm,
@@ -27,7 +26,6 @@ body{
 }
 
 @media only screen and (min-width:992px) {
-    .container-fluid,
     .container-lg,
     .container-md,
     .container-sm,
