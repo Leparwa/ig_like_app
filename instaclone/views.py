@@ -9,6 +9,10 @@ from .forms import CustomUserCreationForm
 def home(request):
     return render(request, 'ig/home.html')
 
+@login_required(login_url='/accounts/login/')
+def profile(request):
+    return render(request, 'ig/profile.html')
+
 def register(request):
     if request.method == "GET":
         return render(
