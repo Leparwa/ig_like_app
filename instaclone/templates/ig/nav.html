@@ -1,69 +1,37 @@
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top border-bottom">
-        <!-- Toggler/collapsibe Button -->
-        <div class="container">
-            <a class="navbar-brand " href="#"><strong>GINSTA</strong></a>
-               <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <a href=""><box-icon name='search'></box-icon> </a> 
-              </form>
-            <div class="navbar">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a href="" class="px-md-3 px-sm-4"><box-icon name='message-rounded'></box-icon></a>
-                    </li>
-                      <li class="nav-item">
-                        <a href="" class="px-md-3 px-sm-4"><box-icon name='heart'></box-icon></a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="" class="px-md-3 px-sm-4"><box-icon name='paper-plane'></box-icon></a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="" class="px-md-3 px-sm-4"><box-icon name='bookmark'></box-icon></a>
-                    </li>
-                    <li class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle px-md-3 px-sm-4" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="https://res.cloudinary.com/dbzjjwjbm/image/upload/v1/media/images/20210710_203838_x9lpz3" alt="User" class="rounded-circle" style="width: 22px; height: 22px;">
-                      </a>
-                      <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#">profile</a></li>
-                        <li><a class="dropdown-item" href="#">saved</a></li>
-                        <li><a class="dropdown-item" href="#">settings</a></li>
-                        <li><a class="dropdown-item" href="#">logout</a></li>
-                      </ul>
-                    </li>
-                  </ul>
-            </div> 
-         </div>
-    </nav>
-  
-
-<!-- <nav class="navbar navbar-expand-md navbar-light bg-light">
-    <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
-      <ul class="navbar-nav mr-auto"> 
-      </ul>
-    </div>
-    <div class="mx-auto order-0">
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-    </div>
-    <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
-      <ul class="navbar-nav ml-auto">
-        {% if user.is_authenticated %}
-          <li class="nav-item">
-            <a class="nav-link" href="/logout">Logout</a>
-          </li>
-          <li class="nav-item">
-            <a class="btn btn-outline-primary" href="/user">{{user.username|title}}</a>
-          </li>
-        {% else %}
-          <li class="nav-item">
-            <a class="nav-link" href="/login">Login</a>
-          </li>
-          <li class="nav-item">
-             <a class="btn btn-outline-primary" href="/register">Register</a>
-          </li>
-        {% endif %}
-      </ul>
-    </div>
-  </nav> -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top border-bottom">
+  <!-- Toggler/collapsibe Button -->
+  <div class="container">
+      <a class="navbar-brand " href="#"><strong>GINSTA</strong></a>
+         <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <a href=""><box-icon name='search'></box-icon> </a> 
+        </form>
+      <div class="navbar">
+          <ul class="navbar-nav">
+              <li class="nav-item">
+                  <a href="" class="px-md-3 px-sm-4"><box-icon name='message-rounded'></box-icon></a>
+              </li>
+                <li class="nav-item">
+                  <a href="" class="px-md-3 px-sm-4"><box-icon name='heart'></box-icon></a>
+              </li>
+              <li class="nav-item">
+                  <a href="" class="px-md-3 px-sm-4"><box-icon name='paper-plane'></box-icon></a>
+              </li>
+              <li class="nav-item">
+                  <a href="" class="px-md-3 px-sm-4"><box-icon name='bookmark'></box-icon></a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle px-md-3 px-sm-4" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <img src="https://res.cloudinary.com/dbzjjwjbm/image/upload/v1/media/images/20210710_203838_x9lpz3" alt="User" class="rounded-circle" style="width: 22px; height: 22px;">
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="/profile">profile</a></li>
+                  <li><a class="dropdown-item" href="#">saved</a></li>
+                  <li><a class="dropdown-item" href="#">settings</a></li>
+                  <li><a class="dropdown-item" href="#">logout</a></li>
+                </ul>
+              </li>
+            </ul>
+      </div> 
+   </div>
+</nav>
