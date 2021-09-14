@@ -4,6 +4,7 @@ from django.contrib.auth import login
 from django.shortcuts import redirect, render
 from django.urls import reverse
 from django.contrib import messages
+from .models import Image
 from django.db import transaction
 from .forms import CustomUserCreationForm, ImageForm, ProfileForm, UserForm, ProfileForm
 
@@ -48,16 +49,15 @@ def update_profile(request):
 
 @login_required
 def new_post(request):
+    """Process images uploaded by users"""
     if request.method == 'POST':
-        post_form = ImageForm(request.POST, instance=request.user)
-        if post_form.is_valid():
-            post_form.save()
-            messages.success(request, ('Your profile was successfully updated!'))
+        form = ImageForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            data = form.instance
+            print(data.image.url)
+            Image(image= data.image.url, name= data.name, caption= data.caption, profile = data.profile, comments = data.comments, likes = data.likes)
             return redirect('profile')
-        else:
-            messages.error(request, ('Please correct the error below.'))
     else:
-        post_form = ImageForm(instance=request.user)
-    return render(request, 'ig/new-post.html', {
-        'post_form': post_form,
-    })
+        form = ImageForm()
+    return render(request, 'ig/new-post.html', {'form': form})
