@@ -1,0 +1,30 @@
+{%extends "ig/base.html"%}
+{% block content %}
+{% include 'ig/nav.html' %}
+<div class="card">
+    <div class="card-body">
+       <div class="row d-flex justify-contend-center">
+     
+           <div class="col-md-10">
+               <div class="pr">
+                   <p>
+                    <a href="#" class="px-2"><img src="https://res.cloudinary.com/dbzjjwjbm/image/upload/v1/media/images/20210710_203838_x9lpz3" alt="User" class="me-1 rounded-circle" height="60px" width="60px"></a>
+
+                    {{ user.get_full_name }} <br>
+                    <a href="/edit-profile" class="px-5 mx-3" style="text-decoration: none;">Change Profile Photo</a>
+
+                   </p>
+            
+                </div>
+            <div class="form-group">
+            <form method="post">
+                {% csrf_token %}
+                {{ post_form.as_p }}
+                <button type="submit" class="btn btn-primary">post</button>
+            </div>
+          </form>
+           </div>
+       </div>
+    </div>
+</div>
+{% endblock %}
