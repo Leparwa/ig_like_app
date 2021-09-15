@@ -13,7 +13,7 @@
                     <a href="#" class="px-2"><img src="https://res.cloudinary.com/dbzjjwjbm/image/upload/v1/media/images/20210710_203838_x9lpz3" alt="User" class="me-1 rounded-circle" height="60px" width="60px"></a>
 
                     {{ user.get_full_name }} <br>
-                    <a href="/edit-profile" class="px-5 mx-3" style="text-decoration: none;">Change Profile Photo</a>
+                    <a href="#" class="px-5 mx-3" data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="text-decoration: none;">Update Profile</a>
 
                    </p>
             
@@ -22,7 +22,7 @@
             <form method="post">
                 {% csrf_token %}
                 {{ user_form.as_p }}
-                <button type="submit" class="btn btn-primary">Save changes</button>
+                <button type="submit" class="btn btn-primary btn-sm">Update</button>
             </div>
           </form>
            </div>

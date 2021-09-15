@@ -33,7 +33,7 @@ body{
         padding-left: 4.5%;
     }
 }
-/* 
+
 .container-lg {
     max-width: 1200px
 }
@@ -48,7 +48,7 @@ body{
 
 .container-xs {
     max-width: 480px
-} */
+}
 
 @media only screen and (max-width:1199px) {
     input[type=text],

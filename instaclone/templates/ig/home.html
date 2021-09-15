@@ -31,31 +31,6 @@
             </div>
           </div>
           {% endfor %}
-        
-          <!-- <div class="card">
-            <div class="card-heading">
-              <div class="media m0">
-                <div class="media-left"><a href="#"><img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="User" class="rounded-circle thumb48"></a></div>
-                <div class="media-body media-middle pt-sm">
-                  <p class="media-heading m0 text-bold">Kevin leparwa</p>
-                </div>
-              </div>
-            </div>
-            <div class="card-item">
-              <img src="https://res.cloudinary.com/dbzjjwjbm/image/upload/v1/media/images/20210710_203838_x9lpz3" alt="MaterialImg" class="fw img-responsive">
-            </div>
-            <div class="card-footer">
-              <a href="" class=""><box-icon name='heart'></box-icon></a>
-              <a href="" class=""><box-icon name='message-rounded'></box-icon></a>
-              <a href="" class=""><box-icon name='paper-plane'></box-icon></a>
-              <a href="" class="pull-right"><box-icon name='bookmark'></box-icon></a>
-
-              <div class="card-item-text bg-transparent">
-                <p>The sun was shinning</p>
-              </div>
-       
-            </div>
-          </div> -->
         </div>
         <div class="col-md-5">
           <div class="position-fixed sidesection">
@@ -77,23 +52,15 @@
                   </span>
                 </p>  
               </span>
+              {% for user in profiles %}
               <li class="d-flex justify-contend-center">
                 <img src="https://bootdey.com/img/Content/avatar/avatar6.png" class="rounded-circle" alt="MaterialImg"  height="40px" width="40px" >
-                   <p class="px-3"><strong>kevin leresi</strong> <br>
+                   <p class="px-3"><strong>{{ user.user.username}}</strong> <br>
                     <small>followed by sergio + 4 more</small>
                   </p> 
                 <a href="/" class="pull-right px-5"> <small>follow</small></a>                
             </li>
-            <li class="d-flex justify-contend-center">
-              <img src="https://bootdey.com/img/Content/avatar/avatar6.png" class="rounded-circle" alt="MaterialImg"  height="40px" width="40px" >
-                 <p class="px-3"><strong>kevin leresi</strong> <br>
-                  <small>followed by sergio + 4 more</small>
-                </p> 
-                <p class="pull-right px-5">
-                  <a href=""> <small>follow</small></a>
-                </p>
-          </li>
-        
+            {% endfor %}
             </ul>
           </div>
         </div>
