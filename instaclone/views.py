@@ -10,7 +10,10 @@ from .forms import CustomUserCreationForm, ImageForm, ProfileForm, UserForm, Pro
 
 @login_required(login_url='/accounts/login/')
 def home(request):
-    return render(request, 'ig/home.html')
+    images= Image.objects.all()
+
+    print(images)
+    return render(request, 'ig/home.html', context ={'images': images })
 
 @login_required(login_url='/accounts/login/')
 def profile(request):
@@ -51,13 +54,12 @@ def update_profile(request):
 def new_post(request):
     """Process images uploaded by users"""
     if request.method == 'POST':
-        form = ImageForm(request.POST, request.FILES)
-        if form.is_valid():
+        profile_form = ImageForm(request.POST, request.FILES)
+        if profile_form.is_valid():
+            form = profile_form.save(commit=False)
+            form.profile = request.user.profile
             form.save()
-            data = form.instance
-            print(data.image.url)
-            Image(image= data.image.url, name= data.name, caption= data.caption, profile = data.profile, comments = data.comments, likes = data.likes)
-            return redirect('profile')
+            return redirect('home')
     else:
         form = ImageForm()
     return render(request, 'ig/new-post.html', {'form': form})
