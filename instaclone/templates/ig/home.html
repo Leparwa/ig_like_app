@@ -9,7 +9,11 @@
           <div class="card">
             <div class="card-heading">
               <div class="media m0">
-                <div class="media-left"><a href="#"><img src="https://res.cloudinary.com/dbzjjwjbm/image/upload/v1/media/images/20210710_203838_x9lpz3" alt="User" class="rounded-circle thumb48"></a></div>
+              {% if image.profile.profile_photo %}
+                <div class="media-left"><a href="#"><img src="{{ image.profile.profile_photo.url }}" alt="User" class="rounded-circle thumb48"></a></div>
+              {% else %}
+                  <div class="media-left"><a href="#"><img src="https://res.cloudinary.com/dbzjjwjbm/image/upload/v1/media/images/20210710_203838_x9lpz3" alt="User" class="rounded-circle thumb48"></a></div>
+              {% endif %}
                 <div class="media-body media-middle pt-sm">
                   <p class="media-heading m0 text-bold">{{ image.profile.user.username}}</p>
                 </div>
@@ -27,15 +31,15 @@
               <div class="card-item-text bg-transparent">
                 <p>{{ image.name }}</p>
               </div>
-       
             </div>
+            <input type="text"  class="form-control" placeholder="leave a comment">
           </div>
           {% endfor %}
         </div>
         <div class="col-md-5">
           <div class="position-fixed sidesection">
             <div  class="d-flex justify-contend-center">
-              <img src="https://bootdey.com/img/Content/avatar/avatar6.png" class="rounded-circle" alt="profile-pic"  height="60px" width="60px" >
+              <img src="{{ user.profile.profile_photo.url }}" class="rounded-circle" alt="profile-pic"  height="60px" width="60px" >
               <span>
                 <p class="px-3"><strong>{{user.username|title}}</strong><br>
                   <small>{{user.username|title}}</small>
@@ -54,7 +58,11 @@
               </span>
               {% for user in profiles %}
               <li class="d-flex justify-contend-center">
-                <img src="https://bootdey.com/img/Content/avatar/avatar6.png" class="rounded-circle" alt="MaterialImg"  height="40px" width="40px" >
+              {% if user.profile.profile_photo %}
+                <a href="#"><img src="{{ user.profile.profile_photo.url }}" class="rounded-circle" alt="MaterialImg"  height="40px" width="40px"></a>
+              {% else %}
+                  <a href="#"><img src="https://res.cloudinary.com/dbzjjwjbm/image/upload/v1/media/images/20210710_203838_x9lpz3" class="rounded-circle" alt="MaterialImg"  height="40px" width="40px"></a>
+              {% endif %}
                    <p class="px-3"><strong>{{ user.user.username}}</strong> <br>
                     <small>followed by sergio + 4 more</small>
                   </p> 

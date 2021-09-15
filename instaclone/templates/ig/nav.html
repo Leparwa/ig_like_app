@@ -12,7 +12,7 @@
       <div class="collapse navbar-collapse px-5" id="navbarTogglerDemo02">
           <ul class="navbar-nav px-5 me-5">
               <li class="nav-item">
-                  <a href="" class="px-md-3 px-sm-4"><box-icon name='message-rounded'></box-icon></a>
+                  <a href="/" class="px-md-3 px-sm-4"><box-icon type='solid' name='home-circle'></box-icon></a>
               </li>
                 <li class="nav-item">
                   <a href="" class="px-md-3 px-sm-4"><box-icon name='heart'></box-icon></a>
@@ -25,7 +25,11 @@
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle px-md-3 px-sm-4" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  <img src="https://res.cloudinary.com/dbzjjwjbm/image/upload/v1/media/images/20210710_203838_x9lpz3" alt="User" class="rounded-circle" style="width: 22px; height: 22px;">
+              {% if user.profile.profile_photo %}
+                  <img src="{{ user.profile.profile_photo.url }}" alt="User" class="rounded-circle" style="width: 22px; height: 22px;">
+              {% else %}
+                    <img src="https://res.cloudinary.com/dbzjjwjbm/image/upload/v1/media/images/20210710_203838_x9lpz3"  alt="User" class="rounded-circle" style="width: 22px; height: 22px;">
+              {% endif %}
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <li><a class="dropdown-item" href="/profile">profile</a></li>

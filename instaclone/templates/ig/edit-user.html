@@ -10,8 +10,11 @@
            <div class="col-md-8">
                <div class="pr">
                    <p>
-                    <a href="#" class="px-2"><img src="https://res.cloudinary.com/dbzjjwjbm/image/upload/v1/media/images/20210710_203838_x9lpz3" alt="User" class="me-1 rounded-circle" height="60px" width="60px"></a>
-
+                {% if user.profile.profile_photo %}
+                    <a href="#" class="px-2"><img src="{{ user.profile.profile_photo.url }}" alt="User" class="me-1 rounded-circle" height="60px" width="60px"></a>
+                {% else %}
+                      <a href="#" class="px-2"><img src="https://res.cloudinary.com/dbzjjwjbm/image/upload/v1/media/images/20210710_203838_x9lpz3"  alt="User" class="me-1 rounded-circle" height="60px" width="60px"></a>
+                {% endif %}
                     {{ user.get_full_name }} <br>
                     <a href="#" class="px-5 mx-3" data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="text-decoration: none;">Update Profile</a>
 
